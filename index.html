@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS for ISAJU Natural branding -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light background */
+            color: #343a40;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,1);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .navbar-brand img {
+            height: 45px; /* Adjust logo size */
+             /* border-radius: 50%;Make logo rounded */
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #495057 !important;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+        }
+        .nav-link:hover {
+            color: #28a745 !important; /* Green hover */
+            background-color: #e6ffe6; /* Light green background on hover */
+        }
+        .nav-link.active {
+            color: #28a745 !important; /* Active green */
+            background-color: #e6ffe6;
+        }
+        .hero-section {
+            background-image: url('fondo3.jpg'); /* Abstract background generated earlier */
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            padding-top: 56px; /* Compensate for fixed navbar */
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Dark overlay for text readability */
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background for content */
+            border-radius: 15px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary-custom {
+            background-color: #28a745; /* Green button */
+            border-color: #28a745;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,.1);
+        }
+        .btn-primary-custom:hover {
+            background-color: #218838; /* Darker green on hover */
+            border-color: #1e7e34;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,.15);
+        }
+        .section-padding {
+            padding: 5rem 0;
+        }
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.12);
+        }
+        .product-card img {
+            max-width: 180px;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+        .product-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 0.5rem;
+        }
+        .product-card .subtitle {
+            color: #28a745;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .product-card p {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        .about-us-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecef;
+        }
+        .about-us-card h3 {
+            color: #28a745;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .about-us-card p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #495057;
+        }
+        .contact-form {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+            padding: 3rem;
+            border: 1px solid #e9ecef;
+        }
+        .contact-form .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .contact-form .form-control {
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+        }
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        footer .social-icons a {
+            color: #adb5bd;
+            transition: color 0.3s ease;
+        }
+        footer .social-icons a:hover {
+            color: #ffffff;
+        }
+        /* Modal specific styles */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,.2);
+        }
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .modal-title {
+            font-weight: 700;
+            color: #28a745;
+        }
+        .modal-body {
+            padding-top: 0;
+            color: #495057;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+        .btn-close {
+            color: #6c757d;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .btn-close:hover {
+            opacity: 1;
+        }
+        /* Message display styles */
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="ISAJU_nat.png" alt="ISAJU Natural Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="display-4"><img src="ISAJU_nat.png" alt="ISAJU Natural Logo" style="width:50%"></h1>
+            <p class="lead">
+                <!-- Visión de ISAJU Natural -->
+                Suplementos 100% naturales para tu cuerpo, mente y bienestar emocional.
+            </p>
+            <a href="#productos" class="btn btn-primary-custom btn-lg">Descubre Nuestros Productos</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Nuestros Productos</h2>
+            <div class="row g-4">
+                <!-- Product 1: Bienestar Diario -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <img src="BienestarDiario.png" class="img-fluid" alt="Bienestar Diario">
+                        <h3>Bienestar Diario</h3>
+                        <p class="subtitle">Multivitamínico con Minerales y Probióticos</p>
+                        <p style="text-align:justify;">Dale a tu cuerpo el impulso que necesita con Bienestar Diario de ISAJU Natural. Nuestra fórmula completa combina vitaminas, minerales y probióticos de alta calidad para apoyar tu energía, sistema inmunológico y salud digestiva.</p>
+						<button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#bienestarDiarioModal">Ver Detalles</button>
+                    </div>
+                </div>
+                <!-- Product 2: Energía Pura -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <img src="EnergiaPura.png" class="img-fluid" alt="Energía Pura">
+                        <h3>Energía Pura</h3>
+                        <p class="subtitle">Proteína Vegana a base de Chía y Nopal</p>
+                        <p style="text-align:justify;">Desata tu potencial con Energía Pura de ISAJU Natural. Nuestra proteína vegana, elaborada a base de chía y nopal, te brinda una fuente completa de proteína vegetal, fibra y omega-3. Ideal para después del ejercicio o como un snack saludable.</p>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#energiaPuraModal">Ver Detalles</button>
+                    </div>
+                </div>
+                <!-- Product 3: Descanso Reparador -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <img src="DescansoReparador.png" class="img-fluid" alt="Descanso Reparador">
+                        <h3>Descanso Reparador</h3>
+                        <p class="subtitle">Magnesio y Melatonina</p>
+                        <p style="text-align:justify;">¿Dificultad para conciliar el sueño o un descanso poco reparador? Descanso Reparador de ISAJU Natural combina magnesio y melatonina para ayudarte a relajarte y disfrutar de un sueño profundo y revitalizante.</p>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#descansoReparadorModal">Ver Detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="quienes-somos" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Quiénes Somos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-us-card">
+                        <h3 class="text-center">Nuestra Visión</h3>
+                        <p class="text-center">
+                            Consolidarnos como la marca de suplementos alimenticios más confiable y de mayor calidad en el mercado, transformando la salud de nuestros consumidores a través de productos 100% naturales y científicamente respaldados.
+                        </p>
+                    </div>
+                    <div class="about-us-card">
+                        <h3 class="text-center">Nuestra Misión</h3>
+                        <p class="text-center">
+                            Transformar la vida de las personas a través de suplementos alimenticios puros y potentes, obtenidos de la naturaleza. Nos dedicamos a educar a nuestros consumidores sobre los beneficios de una nutrición consciente y a empoderarlos para tomar el control de su bienestar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Contáctanos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="text-center mb-4 lead"> 
+                        ¿Tienes preguntas, comentarios o quieres saber más sobre nuestros productos? ¡Estamos aquí para ayudarte!
+                    </p>
+                    <div class="contact-form">
+                         <!--<form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="tu.correo@ejemplo.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Tu Mensaje</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary-custom btn-lg">Enviar Mensaje</button>
+								<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-lg">Comprar ahora</a>
+                            </div>
+                            Message display area
+                            <div id="formMessage" class="form-message d-none mt-3"></div>
+							<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-lg">Comprar ahora</a>
+                        </form>-->
+						<div class="gap-4" style="text-align: center;">
+							<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-sm">Enviar Mensaje</a>
+                        </div>
+                        <div class="text-center mt-4 text-muted">
+                            <p>También puedes contactarnos directamente:</p>
+                            <p>Email: <a href="mailto:isajunatural@gmail.com" class="text-success">isajunatural@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 text-center">
+        <div class="container">
+            <p class="mb-3">&copy; <span id="currentYear"></span> ISAJU Natural. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.013 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.953H10.5c-.98 0-1.284.624-1.284 1.243v1.53h2.234l-.347 2.333H9.215v5.625C13.074 15.396 16 12.066 16 8.049z"/>
+				</svg></a>
+                <a href="#" class="mx-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                </svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals for Product Details -->
+
+    <!-- Modal for Bienestar Diario -->
+    <div class="modal fade" id="bienestarDiarioModal" tabindex="-1" aria-labelledby="bienestarDiarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bienestarDiarioModalLabel" style="text-align:center" >Bienestar Diario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body">
+					<p style="text-align:justify">Nuestra avanzada fórmula combina un espectro completo de vitaminas y minerales vitales, cuidadosamente seleccionados para apoyar tu energía diaria, fortalecer tu sistema inmunológico y optimizar las funciones metabólicas. </p>
+					<p style="text-align:justify">Además, hemos incorporado una potente mezcla de probióticos que promueven un equilibrio saludable en tu flora intestinal, mejorando la digestión y la absorción de nutrientes. Con solo dos cápsulas al día, sentirás una vitalidad renovada y un bienestar integral que te permitirá enfrentar cada desafío con confianza.</p>
+					<p style="text-align:justify">Ideal para compensar deficiencias nutricionales y mantener tu cuerpo en óptimas condiciones.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Energía Pura -->
+    <div class="modal fade" id="energiaPuraModal" tabindex="-1" aria-labelledby="energiaPuraModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="energiaPuraModalLabel">Energía Pura</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body">
+					<p style="text-align:justify">Esta proteína vegana innovadora está formulada con la pureza de la chía y el nopal, dos superalimentos mexicanos ricos en nutrientes. Cada porción te ofrece una fuente completa de proteína vegetal de alta calidad, esencial para el desarrollo y recuperación muscular.</p>
+					<p style="text-align:justify">Además, aporta fibra para una digestión saludable y ácidos grasos Omega-3 de la chía, fundamentales para la salud cardiovascular y cerebral. Con un sabor delicioso y una textura suave, es perfecta para tus batidos post-entrenamiento, como complemento en tus comidas o para mantenerte saciado durante el día. </p>
+					<p style="text-align:justify">Una opción limpia, sostenible y poderosa para tu estilo de vida activo.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Descanso Reparador -->
+    <div class="modal fade" id="descansoReparadorModal" tabindex="-1" aria-labelledby="descansoReparadorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="descansoReparadorModalLabel">Descanso Reparador</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+				<br>
+                <div class="modal-body">
+                    <p style="text-align:justify">Diseñado para combatir el estrés y las noches inquietas, este suplemento combina la acción relajante del Magnesio con la Melatonina, la hormona natural del sueño. El Magnesio ayuda a relajar los músculos y el sistema nervioso, preparando tu cuerpo para el descanso. </p>
+					<p style="text-align:justify">La Melatonina, en su dosis precisa, contribuye a regular tu ciclo de sueño-vigilia, facilitando la conciliación del sueño y mejorando su calidad. Despierta cada mañana sintiéndote completamente renovado, con la mente clara y la energía lista para un nuevo día.</p>
+					<p style="text-align:justify">Es tu solución natural para noches tranquilas y mañanas llenas de vitalidad.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close navbar toggler on click for small screens
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                if (navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+                    navbarToggler.click();
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 70; // Adjust for fixed navbar height
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+		
+		// Handle form submission with Fetch API
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            const object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            const json = JSON.stringify(object);
+
+            try {
+                const response = await fetch('https://formspree.io/f/mkgzjodl', { // REMEMBER TO REPLACE 'yourformid'
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                });
+
+                if (response.ok) {
+                    formMessage.classList.remove('d-none', 'error');
+                    formMessage.classList.add('success');
+                    formMessage.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+                    contactForm.reset(); // Clear the form
+                } else {
+                    const data = await response.json();
+                    formMessage.classList.remove('d-none', 'success');
+                    formMessage.classList.add('error');
+                    formMessage.textContent = data.error || 'Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
+                }
+            } catch (error) {
+                formMessage.classList.remove('d-none', 'success');
+                formMessage.classList.add('error');
+                formMessage.textContent = 'Ocurrió un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.';
+                console.error('Error:', error);
+            } finally {
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('d-none');
+                }, 5000);
+            }
+        });
+		
+    </script>
+</body>
+</html>
