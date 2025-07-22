@@ -258,11 +258,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#home">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#productos">Productos</a>
+					<li class="nav-item">
+                        <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#quienes-somos">Quiénes Somos</a>
+                        <a class="nav-link" href="#productos">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
@@ -276,7 +276,9 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="display-4"><img src="ISAJU_nat.png" alt="ISAJU Natural Logo" style="width:50%"></h1>
+            <h1 class="display-4"><!--<img src="ISAJU_nat.png" alt="ISAJU Natural Logo" style="width:50%">-->
+				ISAJU NATURAL
+			</h1>
             <p class="lead">
                 <!-- Visión de ISAJU Natural -->
                 Suplementos 100% naturales para tu cuerpo, mente y bienestar emocional.
@@ -285,6 +287,29 @@
         </div>
     </section>
 
+	<!-- About Us Section -->
+    <section id="quienes-somos" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5 display-5 fw-bold">Quiénes Somos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-us-card">
+                        <h3 class="text-center">Nuestra Visión</h3>
+                        <p class="text-center">
+                            Consolidarnos como la marca de suplementos alimenticios más confiable y de mayor calidad en el mercado, transformando la salud de nuestros consumidores a través de productos 100% naturales y científicamente respaldados.
+                        </p>
+                    </div>
+                    <div class="about-us-card">
+                        <h3 class="text-center">Nuestra Misión</h3>
+                        <p class="text-center">
+                            Transformar la vida de las personas a través de suplementos alimenticios puros y potentes, obtenidos de la naturaleza. Nos dedicamos a educar a nuestros consumidores sobre los beneficios de una nutrición consciente y a empoderarlos para tomar el control de su bienestar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
     <!-- Products Section -->
     <section id="productos" class="section-padding bg-light">
         <div class="container">
@@ -324,40 +349,20 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="quienes-somos" class="section-padding">
-        <div class="container">
-            <h2 class="text-center mb-5 display-5 fw-bold">Quiénes Somos</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="about-us-card">
-                        <h3 class="text-center">Nuestra Visión</h3>
-                        <p class="text-center">
-                            Consolidarnos como la marca de suplementos alimenticios más confiable y de mayor calidad en el mercado, transformando la salud de nuestros consumidores a través de productos 100% naturales y científicamente respaldados.
-                        </p>
-                    </div>
-                    <div class="about-us-card">
-                        <h3 class="text-center">Nuestra Misión</h3>
-                        <p class="text-center">
-                            Transformar la vida de las personas a través de suplementos alimenticios puros y potentes, obtenidos de la naturaleza. Nos dedicamos a educar a nuestros consumidores sobre los beneficios de una nutrición consciente y a empoderarlos para tomar el control de su bienestar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contacto" class="section-padding bg-light">
         <div class="container">
             <h2 class="text-center mb-5 display-5 fw-bold">Contáctanos</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <p class="text-center mb-4 lead"> 
-                        ¿Tienes preguntas, comentarios o quieres saber más sobre nuestros productos? ¡Estamos aquí para ayudarte!
-                    </p>
                     <div class="contact-form">
-                         <!--<form id="contactForm">
+						<p class="text-center mb-4 lead"> 
+                        ¿Tienes preguntas, comentarios o quieres saber más sobre nuestros productos?
+						</p>
+						<p class="text-center mb-4 lead"> 
+                        ¡Estamos aquí para ayudarte!
+						</p>
+						<!--<form id="contactForm">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nombre Completo</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Tu nombre" required>
@@ -372,13 +377,14 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary-custom btn-lg">Enviar Mensaje</button>
-								<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-lg">Comprar ahora</a>
                             </div>
                             Message display area
                             <div id="formMessage" class="form-message d-none mt-3"></div>
-							<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-lg">Comprar ahora</a>
-                        </form>-->
-						<div class="gap-4" style="text-align: center;">
+                        </fom>-->
+						<p class="text-center mb-4 lead"> 
+						<img src="ISAJU_nat.png" class="img-fluid" alt="Energía Pura" style="width:30%">
+						</p>
+						<div style="text-align: center;">
 							<a href="https://wa.me/2223020486" class="btn btn-primary-custom btn-sm">Enviar Mensaje</a>
                         </div>
                         <div class="text-center mt-4 text-muted">
@@ -394,7 +400,7 @@
     <!-- Footer -->
     <footer class="py-5 text-center">
         <div class="container">
-            <p class="mb-3">&copy; <span id="currentYear"></span> ISAJU Natural. Todos los derechos reservados.</p>
+            <p class="mb-3">&copy; <span id="currentYear"></span> ISAJU NATURAL. Todos los derechos reservados.</p>
             <div class="social-icons">
                 <a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.013 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.953H10.5c-.98 0-1.284.624-1.284 1.243v1.53h2.234l-.347 2.333H9.215v5.625C13.074 15.396 16 12.066 16 8.049z"/>
@@ -521,50 +527,6 @@
 		// Handle form submission with Fetch API
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            const formData = new FormData(contactForm);
-            const object = {};
-            formData.forEach((value, key) => {
-                object[key] = value;
-            });
-            const json = JSON.stringify(object);
-
-            try {
-                const response = await fetch('https://formspree.io/f/mkgzjodl', { // REMEMBER TO REPLACE 'yourformid'
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                });
-
-                if (response.ok) {
-                    formMessage.classList.remove('d-none', 'error');
-                    formMessage.classList.add('success');
-                    formMessage.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
-                    contactForm.reset(); // Clear the form
-                } else {
-                    const data = await response.json();
-                    formMessage.classList.remove('d-none', 'success');
-                    formMessage.classList.add('error');
-                    formMessage.textContent = data.error || 'Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo.';
-                }
-            } catch (error) {
-                formMessage.classList.remove('d-none', 'success');
-                formMessage.classList.add('error');
-                formMessage.textContent = 'Ocurrió un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.';
-                console.error('Error:', error);
-            } finally {
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.classList.add('d-none');
-                }, 5000);
-            }
-        });
 		
     </script>
 </body>
